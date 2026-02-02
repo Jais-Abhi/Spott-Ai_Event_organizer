@@ -1,6 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import Header from "@/components/Header";
+import { ConvexClientProvider } from "./ConvexClientProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,17 +24,39 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning >
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className=" bg-linear-to-br from-gray-950 via-zinc-900 to-stone-900"
       >
         
-      
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
           >
-          {children}
+            <ConvexClientProvider>
+            {/* header */}
+            <Header/>
+
+            <div className="relative min-h-screen "
+             >
+              {/* glow */}
+              <div className="overflow-hidden pointer-events-none absolute inset-0 -z-10" >
+                <div 
+              className="absolute top-0 left-1/4 h-96 w-96
+              rounded-full bg-pink-600/30 blur-3xl  " />  
+                <div 
+              className="absolute bottom-0 right-1/5 h-96 w-96
+              rounded-full bg-orange-600/20 blur-3xl  " />  
+              </div>
+
+              <div
+              className=""
+              >
+                {children}
+              </div>
+             
+            </div>
+          </ConvexClientProvider>
         </ThemeProvider>
         </body>
     </html>
