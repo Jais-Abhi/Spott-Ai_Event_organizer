@@ -7,8 +7,11 @@ import { Button } from './ui/button'
 import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
 import { Authenticated, Unauthenticated } from 'convex/react'
 import { BarLoader } from 'react-spinners'
+import { useStoreUser } from '@/hooks/use-store-user.js'
 
 const Header = () => {
+    const {isLoading, isAuthenticated} = useStoreUser();
+    console.log(isLoading);
   return (
     <nav className=' bg-linear-to-r  fixed top-0 from-black via-gray-950/60 to-gray-950/40 w-full z-10 ' >
         <div className='flex h-20 justify-around items-center ' >
@@ -36,9 +39,11 @@ const Header = () => {
         <div>
             {/* mobile search */}
         </div>
+        {isLoading && 
         <div className='w-full bottom-0 absolute' >
-            <BarLoader width={"100%"} color='#eb1bfe'  />
+            <BarLoader  width={"100%"} color='#eb1bfe'  />
         </div>
+        }
     </nav>
   )
 }
