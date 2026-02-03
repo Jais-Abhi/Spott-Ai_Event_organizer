@@ -6,10 +6,11 @@ import React from 'react'
 import { Button } from './ui/button'
 import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
 import { Authenticated, Unauthenticated } from 'convex/react'
+import { BarLoader } from 'react-spinners'
 
 const Header = () => {
   return (
-    <nav className=' bg-linear-to-r  from-black via-gray-950/60 to-gray-950/40 w-full z-10 ' >
+    <nav className=' bg-linear-to-r  fixed top-0 from-black via-gray-950/60 to-gray-950/40 w-full z-10 ' >
         <div className='flex h-20 justify-around items-center ' >
             <Link href="/">
                 <Image src="/spott.png" width={90} height={40} alt="Logo" />
@@ -23,7 +24,7 @@ const Header = () => {
                     <UserButton />
                 </Authenticated>
 
-                
+
                 <Unauthenticated>
                     <SignInButton mode="modal"  >
                         <Button size="sm" >sign In</Button>
@@ -33,7 +34,10 @@ const Header = () => {
             </div>
         </div>
         <div>
-            
+            {/* mobile search */}
+        </div>
+        <div className='w-full bottom-0 absolute' >
+            <BarLoader width={"100%"} color='#eb1bfe'  />
         </div>
     </nav>
   )
