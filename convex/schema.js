@@ -19,5 +19,6 @@ export default defineSchema({
         freeEventCreated:v.number(),
         createdAt:v.number(),
         updatedAt:v.number(),
+  
     }).index("by_token",["tokenIdentifier"])
 })
