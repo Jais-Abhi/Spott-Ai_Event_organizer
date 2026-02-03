@@ -5,6 +5,7 @@ import Link from 'next/link'
 import React from 'react'
 import { Button } from './ui/button'
 import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
+import { Authenticated, Unauthenticated } from 'convex/react'
 
 const Header = () => {
   return (
@@ -17,15 +18,18 @@ const Header = () => {
                 search
             </div>
             <div>
-                <SignedOut>
+                {/* Show the user button when the user is signed in */}
+                <Authenticated>
+                    <UserButton />
+                </Authenticated>
+
+                
+                <Unauthenticated>
                     <SignInButton mode="modal"  >
-                        <Button  >sign In</Button>
+                        <Button size="sm" >sign In</Button>
                     </SignInButton>
-                </SignedOut>
-            {/* Show the user button when the user is signed in */}
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
+                </Unauthenticated>
+            
             </div>
         </div>
         <div>
