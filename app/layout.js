@@ -56,7 +56,6 @@ export default function RootLayout({ children }) {
               </div>
 
               <div
-              className=""
               >
                 {children}
               </div>
