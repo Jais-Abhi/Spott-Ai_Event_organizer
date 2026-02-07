@@ -14,5 +14,5 @@ export function ConvexClientProvider({ children }) {
   return <ConvexProviderWithClerk 
   client={convex}
   useAuth={useAuth}
-  >{children}</ConvexProviderWithClerk>;
+  >{children}</ConvexProviderWithClerk>
 }
