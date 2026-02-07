@@ -8,13 +8,13 @@ import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@cl
 import { Authenticated, Unauthenticated } from 'convex/react'
 import { BarLoader } from 'react-spinners'
 import { useStoreUser } from '@/hooks/use-store-user.js'
+import { Building, Plus, Ticket } from 'lucide-react'
 
 const Header = () => {
     const {isLoading, isAuthenticated} = useStoreUser();
     console.log(isLoading);
   return (
-    <nav className=' bg-linear-to-r  fixed top-0 from-black via-gray-950/60 to-gray-950/40 
-    w-full z-10 ' >
+    <nav className=' bg-linear-to-r  fixed top-0 from-black via-gray-950/60 to-gray-950/40 w-full z-10 ' >
         <div className='flex h-20 justify-around items-center  ' >
             <Link href="/">
                 <Image src="/spott.png" width={90} height={40} alt="Logo" />
@@ -36,8 +36,30 @@ const Header = () => {
                 {/* Show the user button when the user is signed in */}
                 <div >
                     <Authenticated>
-                    <UserButton />
-                </Authenticated>
+                        <div className='flex justify-center' >
+                            <Button variant='default' asChild className="mr-4 "  >
+                                <Link href={"/create-events"} className='' >
+                                    <Plus className='font-black text-2xl' /> 
+                                    <span >Create Events</span>
+                                </Link>
+                            </Button>
+                            <UserButton>
+                                <UserButton.MenuItems>
+                                    <UserButton.Link
+                                    label='My Tickets'
+                                    labelIcon={<Ticket className='w-5' />}
+                                    href='/my-tickets'
+                                    />
+                                    <UserButton.Link
+                                    label='My Events'
+                                    labelIcon={<Building className='w-5' />}
+                                    href='/my-events'
+                                    />
+                                    <UserButton.Action label='manageAccount' />
+                                </UserButton.MenuItems>
+                            </UserButton>
+                        </div>
+                    </Authenticated>
 
 
                 <Unauthenticated>
