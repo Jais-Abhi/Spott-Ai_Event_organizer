@@ -19,7 +19,7 @@ const Header = () => {
             <Link href="/">
                 <Image src="/spott.png" width={90} height={40} alt="Logo" />
             </Link>
-            <div className='w-1/3' >
+            <div className=' hidden md:block w-1/3' >
                 search
             </div>
             <div className='flex items-center' >
