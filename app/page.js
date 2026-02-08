@@ -19,7 +19,7 @@ export default function Home() {
           className="text-xl mt-8 text-white/60 max-md:text-center"
           >Whether you're hosting or attending, Spott makes every event memorable. Join our community today.</span>
           <Button className="mt-8 rounded-4xl  " size="md" >
-            <Link href="/sign-up" className=" text-xl  px-4 " >Get Started</Link>
+            <Link href="/explore" className=" text-xl  px-4 " >Get Started</Link>
             </Button>
           </div>
           {/* right */}
