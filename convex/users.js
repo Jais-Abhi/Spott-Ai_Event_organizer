@@ -50,7 +50,7 @@ export const getCurrentUser = query({
     }
     const user = await ctx.db
     .query("users")
-    .withIndex("by_token",()=>
+    .withIndex("by_token",(q)=>
       q.eq("tokenIdentifier",identity.tokenIdentifier)
     ).unique();
 
