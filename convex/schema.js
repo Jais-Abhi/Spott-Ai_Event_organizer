@@ -22,7 +22,7 @@ export default defineSchema({
   
     }).index("by_token",["tokenIdentifier"]),
 
-    Events:defineTable({
+    events:defineTable({
         title:v.string(),
         description:v.string(),
         slug:v.string(),
@@ -30,21 +30,23 @@ export default defineSchema({
         organizerId:v.id("users"),
         organizerName:v.string(),
 
-        Category:v.string(),
+        category:v.string(),
         tags:v.array(v.string()),
 
         startDate:v.number(),
         endDate:v.number(),
-        timezone:v.number(),
+        timezone:v.string(),
 
-        loaction:v.union(v.literal("Online"),v.literal("Physical")),
+        locationType:v.union(v.literal("online"),v.literal("physical")),
         venue:v.optional(v.string()),
         address:v.optional(v.string()),
         city:v.string(),
         state:v.string(),
+        country:v.string(),
+
         capacity:v.number(),
-        ticketType:v.union(v.literal("Free"),v.literal("Paid")),
-        ticketPrice:v.number(),
+        ticketType:v.union(v.literal("free"),v.literal("paid")),
+        ticketPrice:v.optional(v.number()),
         registrationCount:v.number(),
 
         coverImage:v.string(),
@@ -55,15 +57,15 @@ export default defineSchema({
 
     })
     .index("by_organizer",["organizerId"])
-    .index("by_category",["Category"])
+    .index("by_category",["category"])
     .index("by_start_date",["startDate"])
     .index("slug",["endDate"])
     .searchIndex("search_title",{searchField : "title" }),
 
-    Registrations:defineTable({
-        eventId:v.id("Events"),
-        userId:v.id("Users"),
-        status:v.union(v.literal("Confirm"),v.literal("Cancelled")),
+    registrations:defineTable({
+        eventId:v.id("events"),
+        userId:v.id("users"),
+        status:v.union(v.literal("confirmed"),v.literal("cancelled")),
         registeredAt:v.number(),
         attendeName:v.string(),
         attendeEmail:v.string(),
