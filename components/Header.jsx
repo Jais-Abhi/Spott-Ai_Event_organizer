@@ -40,7 +40,7 @@ const Header = () => {
                             <Button variant='default' asChild className="mr-4 "  >
                                 <Link href={"/create-events"} className='' >
                                     <Plus className='font-black text-2xl' /> 
-                                    <span >Create Events</span>
+                                    <span className='md:flex hidden' >Create Events</span>
                                 </Link>
                             </Button>
                             <UserButton>
