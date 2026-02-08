@@ -42,8 +42,6 @@ export default defineSchema({
         address:v.optional(v.string()),
         city:v.string(),
         state:v.string(),
-        country:v.string(),
-
         capacity:v.number(),
         ticketType:v.union(v.literal("Free"),v.literal("Paid")),
         ticketPrice:v.number(),
