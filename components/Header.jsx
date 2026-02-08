@@ -15,6 +15,7 @@ const Header = () => {
     console.log(isLoading);
   return (
     <nav className=' bg-linear-to-r  fixed top-0 from-black via-gray-950/60 to-gray-950/40 w-full z-10 ' >
+        <div className='absolute inset-0 -z-10' />
         <div className='flex h-20 justify-around items-center  ' >
             <Link href="/">
                 <Image src="/spott.png" width={90} height={40} alt="Logo" />
