@@ -47,12 +47,12 @@ const Header = () => {
                                 <UserButton.MenuItems>
                                     <UserButton.Link
                                     label='My Tickets'
-                                    labelIcon={<Ticket className='w-5' />}
+                                    labelIcon={<Ticket className='w-4' />}
                                     href='/my-tickets'
                                     />
                                     <UserButton.Link
                                     label='My Events'
-                                    labelIcon={<Building className='w-5' />}
+                                    labelIcon={<Building className='w-4' />}
                                     href='/my-events'
                                     />
                                     <UserButton.Action label='manageAccount' />
