@@ -1,5 +1,7 @@
 import Error from "next/error";
 import { mutation, query } from "./_generated/server";
+import { v } from "convex/values";
+import { internal } from "./_generated/api";
 
 export const store = mutation({
   args: {},

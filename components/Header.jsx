@@ -9,11 +9,16 @@ import { Authenticated, Unauthenticated } from 'convex/react'
 import { BarLoader } from 'react-spinners'
 import { useStoreUser } from '@/hooks/use-store-user.js'
 import { Building, Plus, Ticket } from 'lucide-react'
+import OnboardingModal from './onboarding-modal'
+import { useOnboarding } from '@/hooks/use-onboarding'
 
 const Header = () => {
     const {isLoading, isAuthenticated} = useStoreUser();
+    const { showOnboarding, handleOnboardingComplete, handleOnboardingSkip } =
+    useOnboarding();
     console.log(isLoading);
   return (
+    <>
     <nav className=' bg-linear-to-r  fixed top-0 from-black via-gray-950/60 to-gray-950/40 w-full z-10 ' >
         <div className='absolute inset-0 -z-10' />
         <div className='flex h-20 justify-around items-center  ' >
@@ -81,6 +86,12 @@ const Header = () => {
         </div>
         }
     </nav>
+        <OnboardingModal
+        isOpen={showOnboarding}
+        onClose={handleOnboardingSkip}
+        onComplete={handleOnboardingComplete}
+      />
+    </>
   )
 }
 
