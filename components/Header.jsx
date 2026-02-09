@@ -11,6 +11,7 @@ import { useStoreUser } from '@/hooks/use-store-user.js'
 import { Building, Plus, Ticket } from 'lucide-react'
 import OnboardingModal from './onboarding-modal'
 import { useOnboarding } from '@/hooks/use-onboarding'
+import SearchLocationBar from './search-location-bar'
 
 const Header = () => {
     const {isLoading, isAuthenticated} = useStoreUser();
@@ -25,9 +26,10 @@ const Header = () => {
             <Link href="/">
                 <Image src="/spott.png" width={90} height={40} alt="Logo" />
             </Link>
-            <div className=' hidden md:block w-1/3' >
-                search
-            </div>
+            {/* Search */}
+            <div className="hidden lg:flex  justify-center">
+            <SearchLocationBar />
+          </div>
             <div className='flex items-center' >
                 <div className=' flex justify-center items-center mr-2 '>
                     <Button variant='ghost' asChild  >
@@ -77,8 +79,9 @@ const Header = () => {
             
             </div>
         </div>
-        <div>
             {/* mobile search */}
+            <div className="lg:hidden border-t px-3 py-3">
+          <SearchLocationBar />
         </div>
         {isLoading && 
         <div className='w-full bottom-0 absolute' >
